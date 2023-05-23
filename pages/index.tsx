@@ -3,9 +3,11 @@ import { getSession } from "next-auth/react";
 import Head from "next/head";
 
 import Billboard from "@/components/Billboard";
+import MovieList from "@/components/MovieList";
 import Navbar from "@/components/Navbar";
 
 import useCurrentUser from "@/hooks/useCurrentUser";
+import useMovieList from "@/hooks/useMovieList";
 
 export async function getServerSideProps(context: NextPageContext) {
   const session = await getSession(context);
@@ -25,7 +27,9 @@ export async function getServerSideProps(context: NextPageContext) {
 }
 
 export default function Home() {
+  const { data: movies = [] } = useMovieList();
   const { data: user } = useCurrentUser();
+
   return (
     <>
       <Head>
@@ -37,6 +41,9 @@ export default function Home() {
       <main>
         <Navbar />
         <Billboard />
+        <div className="pb-40">
+          <MovieList title="Trending Now" data={movies} />
+        </div>
       </main>
     </>
   );
