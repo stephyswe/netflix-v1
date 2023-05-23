@@ -41,7 +41,7 @@ export default function Home() {
       </Head>
       <main>
         <Navbar />
-        <Billboard />
+        {/* <Billboard /> */}
         <div className="pb-40">
           <MovieList title="Trending Now" data={movies} />
           <MovieList title="My List" data={favorites} />
