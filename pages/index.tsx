@@ -2,6 +2,8 @@ import { NextPageContext } from "next";
 import { getSession, signOut } from "next-auth/react";
 import Head from "next/head";
 
+import Navbar from "@/components/Navbar";
+
 import useCurrentUser from "@/hooks/useCurrentUser";
 
 export async function getServerSideProps(context: NextPageContext) {
@@ -32,11 +34,18 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <h1 className="text-2xl text-green-500">Netflix clone</h1>
-        <h2 className="text-xl text-white">Welcome {user?.name}</h2>
-        <button className="h-10 w-full bg-white" onClick={() => signOut()}>
+        {/* <h1 className="text-2xl text-green-500">Netflix clone</h1>
+        <h2 className="text-xl text-white">Welcome {user?.name}</h2> */}
+        <Navbar />
+        {/*  <button className="h-10 w-full bg-white" onClick={() => signOut()}>
           Log out
-        </button>
+        </button> */}
+        <div
+          style={{
+            height: "240rem",
+          }}
+          className="bg-gray-500"
+        ></div>
       </main>
     </>
   );
