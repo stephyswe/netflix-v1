@@ -27,7 +27,7 @@ const Auth = () => {
         callbackUrl: "/profiles",
       });
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   }, [email, password]);
 
